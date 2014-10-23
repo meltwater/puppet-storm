@@ -37,7 +37,6 @@ class storm::supervisor(
         stderr_logfile_maxsize => $service_stderr_logfile_maxsize,
         stderr_logfile_keep    => $service_stderr_logfile_keep,
         stopsignal             => 'KILL',
-        stopasgroup            => true,
         require                => [ Class['storm::config'], Class['::supervisor'] ],
     }
 
