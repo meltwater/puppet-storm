@@ -23,7 +23,6 @@ class storm::supervisor(
     supervisor::service {
       $service_name_supervisor:
         ensure                 => $service_ensure,
-        enable                 => $service_enable,
         command                => "${command} supervisor",
         directory              => '/',
         environment            => $service_environment,
