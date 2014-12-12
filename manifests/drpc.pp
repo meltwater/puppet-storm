@@ -23,7 +23,6 @@ class storm::drpc(
     supervisor::service {
       $service_name_drpc:
         ensure                 => $service_ensure,
-        enable                 => $service_enable,
         command                => "${command} drpc",
         directory              => '/',
         environment            => $service_environment,

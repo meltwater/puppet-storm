@@ -23,7 +23,6 @@ class storm::logviewer(
     supervisor::service {
       $service_name_logviewer:
         ensure                 => $service_ensure,
-        enable                 => $service_enable,
         command                => "${command} logviewer",
         directory              => '/',
         environment            => $service_environment,

@@ -23,7 +23,6 @@ class storm::ui(
     supervisor::service {
       $service_name_ui:
         ensure                 => $service_ensure,
-        enable                 => $service_enable,
         command                => "${command} ui",
         directory              => '/',
         environment            => $service_environment,

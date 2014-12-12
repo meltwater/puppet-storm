@@ -23,7 +23,6 @@ class storm::nimbus(
     supervisor::service {
       $service_name_nimbus:
         ensure                 => $service_ensure,
-        enable                 => $service_enable,
         command                => "${command} nimbus",
         directory              => '/',
         environment            => $service_environment,
