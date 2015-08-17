@@ -10,7 +10,8 @@
 #   respectively.
 class storm::supervisor(
   $service_environment = '',
-  $command = $storm::command,
+  $service_enable      = $storm::service_enable,
+  $service_ensure      = $storm::service_ensure,
 ) inherits storm {
 
   validate_string($service_environment)
