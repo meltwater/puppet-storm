@@ -28,6 +28,7 @@ class storm(
   $nimbus_childopts        = $storm::params::nimbus_childopts,
   $package_name            = $storm::params::package_name,
   $package_ensure          = $storm::params::package_ensure,
+  $package_rpm_source      = $storm::params::package_rpm_source,
   $service_autorestart     = hiera('storm::service_autorestart', $storm::params::service_autorestart),
   $service_enable          = hiera('storm::service_enable', $storm::params::service_enable),
   $service_ensure          = $storm::params::service_ensure,

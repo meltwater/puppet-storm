@@ -2,10 +2,21 @@
 #
 class storm::install inherits storm {
 
-  package { 'storm':
-    ensure  => $package_ensure,
-    name    => $package_name,
+  if $package_rpm_source == undef {
+    $package_install_options = {
+      ensure   => $package_ensure,
+      name     => $package_name
+    }
+  } else {
+    $package_install_options = {
+      ensure   => $package_ensure,
+      name     => $package_name,
+      provider => 'rpm',
+      source   => $package_rpm_source
+    }
   }
+
+  ensure_resource('package', 'storm', $package_install_options)
 
   # This exec ensures we create intermediate directories for $local_dir as required
   exec { 'create-storm-local-directory':
