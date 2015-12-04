@@ -20,6 +20,7 @@ class storm::params {
   $nimbus_childopts        = '-Xmx256m -Djava.net.preferIPv4Stack=true'
   $package_name            = 'storm'
   $package_ensure          = 'present'
+  $package_rpm_source      = undef
   $service_autorestart     = true
   $service_enable          = true
   $service_ensure          = 'present'
