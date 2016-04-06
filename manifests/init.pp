@@ -21,8 +21,11 @@ class storm(
   $local_dir               = $storm::params::local_dir,
   $local_hostname          = $storm::params::local_hostname,
   $log_dir                 = $storm::params::log_dir,
-  $logback                 = $storm::params::logback,
-  $logback_template        = $storm::params::logback_template,
+  $log_framework           = $storm::params::log_framework,
+  $log_cluster_config      = undef,
+  $log_template            = undef,
+  $logback                 = undef, # deprecated
+  $logback_template        = undef, # deprecated
   $logviewer_childopts     = $storm::params::logviewer_childopts,
   $nimbus_host             = $storm::params::nimbus_host,
   $nimbus_childopts        = $storm::params::nimbus_childopts,
@@ -72,8 +75,11 @@ class storm(
   validate_absolute_path($local_dir)
   validate_string($local_hostname)
   validate_absolute_path($log_dir)
-  validate_absolute_path($logback)
-  validate_string($logback_template)
+  validate_string($log_framework)
+  if $log_cluster_config { validate_absolute_path($log_cluster_config) }
+  if $log_template { validate_string($log_template) }
+  if $logback { validate_absolute_path($logback) }
+  if $logback_template { validate_string($logback_template) }
   validate_string($logviewer_childopts)
   validate_string($nimbus_host)
   validate_string($nimbus_childopts)

@@ -12,9 +12,8 @@ class storm::params {
   $group_ensure            = 'present'
   $local_dir               = '/app/storm'
   $local_hostname          = $::hostname
+  $log_framework           = 'logback'
   $log_dir                 = '/var/log/storm'
-  $logback                 = '/opt/storm/logback/cluster.xml'
-  $logback_template        = 'storm/cluster.xml.erb'
   $logviewer_childopts     = '-Xmx128m -Djava.net.preferIPv4Stack=true'
   $nimbus_host             = 'nimbus1'
   $nimbus_childopts        = '-Xmx256m -Djava.net.preferIPv4Stack=true'
